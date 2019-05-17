@@ -1,0 +1,80 @@
+
+
+
+.messageBox {
+    font-size: 100%;
+    font-weight: bold;
+    color: white;
+    background-color: #FF4B49;
+    width: 250px;
+    float: right;
+    margin-bottom: 0;
+    border: 2px solid black;
+}
+
+.messageBox .name {
+    font-weight: bold;
+}
+
+.messageBox .content {
+    height: 250px;
+    background-color: white;
+    border: 2px solid green;
+}
+
+
+.content{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.message{
+    display: flex;
+}
+
+.messageText{
+    float:left;
+    width:70%;
+
+}
+
+.sendButton{
+    background-color: #bbb;
+    display: block;
+    float:right;
+    width: 30%;
+}
+
+.content p{
+    display:inline-block;
+    clear: both;
+    padding: 10px;
+    border-radius: 30px;
+    margin-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.friend{
+    background: #663399;
+    float: left;
+}
+
+.self{
+    float: right;
+    background: #0084ff;
+}
+
+.friend + .self{
+    border-bottom-right-radius: 2px;
+}
+
+.self + .self{
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.self:last-of-type {
+    border-bottom-right-radius: 30px;
+}
