@@ -66,6 +66,7 @@ function getFriendsData() {
 
 function setState() {
     let newState = document.getElementById("stateText").value;
+    console.log(newState);
     setStateRequest.open("POST", "Controller", true);
     setStateRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     let information = "action=setState&state=" + encodeURI(newState);
@@ -110,10 +111,15 @@ function openBox(friendName) {
         let messages = document.getElementById("messages");
         let messageBox = document.createElement("div");
         messageBox.className = "messageBox";
+        messageBox.id = friendName + "messageBox";
         let name = document.createElement("p");
         name.className = "name";
         name.id = friendName + "name";
         name.textContent = friendName;
+        name.addEventListener("click", function () {
+            console.log('hahahaha');
+            closeBox(friendName);
+        });
         let content = document.createElement("div");
         content.className = "content";
         content.id = friendName + "content";
@@ -143,6 +149,9 @@ function openBox(friendName) {
         messageBox.append(content);
         messageBox.append(message);
         messages.append(messageBox);
+    }else{
+        let id = friendName + "messageBox";
+        $('#' + id).toggle("fold");
     }
 }
 
@@ -193,4 +202,10 @@ function addToConversation(friendName) {
         });
         startConversation(friendName);
     }
+}
+
+function closeBox(friendName) {
+    let id = friendName + "messageBox";
+    console.log('toggled ' + id);
+    $('#' + id).toggle("blind");
 }
